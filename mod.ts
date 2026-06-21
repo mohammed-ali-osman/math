@@ -1,7 +1,16 @@
+/**
+ * math
+ *
+ * Module entrypoint that re-exports the public API of the package.
+ *
+ * Example:
+ * ```ts
+ * import { add, sub } from "./mod.ts";
+ * console.log(add(2,3)); // 5
+ * ```
+ */
+
 import { add } from "./add.ts";
 import { sub } from "./sub.ts";
 
-
-
-
-export {add, sub};
+export { add, sub };
