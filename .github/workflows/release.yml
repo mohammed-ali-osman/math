@@ -1,32 +1,38 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: ["Test"]
-    types:
-      - completed
+  push:
+    tags:
+      - "v*.*.*"
 
-permissions:
-  contents: read
-  id-token: write
-
+      
 jobs:
-  publish:
-    if: >
-      github.event.workflow_run.conclusion == 'success' &&
-      startsWith(github.event.workflow_run.head_branch, 'main')
-
+  release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
 
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      - run: deno publish --dry-run
+      - name: Format check
+        run: deno fmt --check
 
-      - run: deno publish
+      - name: Lint
+        run: deno lint
+
+      - name: Test
+        run: deno test
+
+      # Safety check (important)
+      - name: Dry run publish
+        run: deno publish --dry-run
+
+      # Actual publish (JSR via OIDC)
+      - name: Publish
+        run: deno publish
