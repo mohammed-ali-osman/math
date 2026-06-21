@@ -3,11 +3,13 @@
  *
  * Module entrypoint that re-exports the public API of the package.
  *
- * Example:
+ * @example
  * ```ts
  * import { add, sub } from "./mod.ts";
  * console.log(add(2,3)); // 5
  * ```
+ *
+ * @module
  */
 
 import { add } from "./add.ts";

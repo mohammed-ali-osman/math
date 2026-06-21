@@ -2,6 +2,8 @@
  * Math helpers: subtraction utilities.
  *
  * This module exports subtraction helpers used by the package.
+ *
+ * @module
  */
 
 /**

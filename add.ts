@@ -2,6 +2,8 @@
  * Math helpers: addition utilities.
  *
  * This module exports a small set of addition helpers used by the package.
+ *
+ * @module
  */
 
 /**
