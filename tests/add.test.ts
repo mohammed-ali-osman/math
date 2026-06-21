@@ -1,6 +1,6 @@
 import { add } from "../add.ts";
-import { assertEquals } from "@std/assert"
+import { assertEquals } from "@std/assert";
 
 Deno.test("addition", () => {
-    assertEquals(add(1, 1), 2)
-})
+  assertEquals(add(1, 1), 2);
+});
