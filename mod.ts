@@ -14,5 +14,6 @@
 
 import { add } from "./add.ts";
 import { sub } from "./sub.ts";
+import { mul } from "./mul.ts";
 
-export { add, sub };
+export { add, sub, mul };
