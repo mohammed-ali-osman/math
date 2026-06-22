@@ -7,6 +7,9 @@
     "./add": "./add.ts",
     "./sub": "./sub.ts"
   },
+  "tasks": {
+    "check": "deno test && deno lint && deno fmt --check"
+  },
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.0"
   },
