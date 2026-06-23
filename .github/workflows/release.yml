@@ -2,10 +2,10 @@ name: Release
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
-  jsr-release:
+  jsr:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,7 +21,7 @@ jobs:
       - run: deno publish --dry-run
       - run: deno publish
 
-  npm-release:
+  npm:
     runs-on: ubuntu-latest
 
     steps:
