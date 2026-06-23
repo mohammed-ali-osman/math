@@ -1,46 +1,46 @@
-name: Release
+  name: Release
 
-on:
-  release:
-    types: [published]
+  on:
+    release:
+      types: [published]
 
-jobs:
-  jsr:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
+  jobs:
+    jsr:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        id-token: write
 
-    steps:
-      - uses: actions/checkout@v4
+      steps:
+        - uses: actions/checkout@v4
 
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+        - uses: denoland/setup-deno@v2
+          with:
+            deno-version: v2.x
 
-      - run: deno publish --dry-run
-      - run: deno publish
+        - run: deno publish --dry-run
+        - run: deno publish
 
-  npm:
-    runs-on: ubuntu-latest
+    npm:
+      runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+      steps:
+        - uses: actions/checkout@v4
 
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+        - uses: denoland/setup-deno@v2
+          with:
+            deno-version: v2.x
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org
+        - uses: actions/setup-node@v4
+          with:
+            node-version: 22
+            registry-url: https://registry.npmjs.org
 
-      - name: Build npm package
-        run: deno task build
+        - name: Build npm package
+          run: deno task build
 
-      - name: Publish to npm
-        working-directory: dist
-        run: npm publish
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        - name: Publish to npm
+          working-directory: dist
+          run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
