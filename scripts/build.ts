@@ -9,9 +9,14 @@ await build({
     "./sub.ts",
   ],
   outDir: "./dist",
+  test: false,
 
   shims: {
     deno: false,
+  },
+  compilerOptions: {
+    target: "ES2023",
+    lib: ["ES2023", "DOM"],
   },
 
   package: {
@@ -23,10 +28,10 @@ await build({
     license: "MIT",
     repository: {
       type: "git",
-      url: "git+https://github.com/YOUR_USERNAME/math.git",
+      url: "git+https://github.com/mohammed-ali-osman/math.git",
     },
     bugs: {
-      url: "https://github.com/YOUR_USERNAME/math/issues",
+      url: "https://github.com/mohammed-ali-osman/math/issues",
     },
   },
 });
