@@ -8,10 +8,12 @@
     "./sub": "./sub.ts"
   },
   "tasks": {
+    "build": "deno run -A scripts/build.ts",
     "check": "deno test && deno lint && deno fmt --check"
   },
   "imports": {
-    "@std/assert": "jsr:@std/assert@^1.0.0"
+    "@std/assert": "jsr:@std/assert@^1.0.0",
+    "@deno/dnt": "jsr:@deno/dnt"
   },
   "publish": {
     "exclude": [

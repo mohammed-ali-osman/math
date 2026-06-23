@@ -1,0 +1,24 @@
+{
+  "name": "@barcoder/math",
+  "version": "0.2.3",
+  "description": "A tiny Deno math utility providing basic arithmetic helpers.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammed-ali-osman/math.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mohammed-ali-osman/math/issues"
+  },
+  "homepage": "https://github.com/mohammed-ali-osman/math#readme"
+}
