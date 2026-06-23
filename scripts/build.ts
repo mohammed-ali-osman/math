@@ -20,7 +20,7 @@ await build({
   },
 
   package: {
-    name: "@peno/math",
+    name: "@barcoder/math",
     version: Deno.readTextFileSync("./deno.json")
       ? JSON.parse(Deno.readTextFileSync("./deno.json")).version
       : "0.0.0",
