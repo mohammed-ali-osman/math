@@ -39,6 +39,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+          
+      - name: Upgrade npm for the latest
+        run: npm install -g npm@latest
 
       - name: Build npm package
         run: deno task build
