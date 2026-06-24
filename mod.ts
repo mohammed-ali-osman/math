@@ -18,4 +18,4 @@ import { mul } from "./mul.ts";
 import { div } from "./div.ts";
 import { pow } from "./pow.ts";
 
-export { add, div, mul, sub, pow };
+export { add, div, mul, pow, sub };

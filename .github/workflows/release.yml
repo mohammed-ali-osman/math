@@ -1,12 +1,30 @@
-name: Release
+name: Publish
 
 on:
   release:
     types: [published]
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Check Formatting
+        run: deno fmt --check
+
+      - name: Run Linter
+        run: deno lint
+
+      - name: Run Tests
+        run: deno test
   jsr:
     runs-on: ubuntu-latest
+    needs: verify
     permissions:
       contents: read
       id-token: write
@@ -23,10 +41,10 @@ jobs:
 
   npm:
     runs-on: ubuntu-latest
-
+    needs: verify
     permissions:
-        id-token: write
-        contents: read
+      id-token: write
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +57,7 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
-          
+
       - name: Upgrade npm for the latest
         run: npm install -g npm@latest
 
